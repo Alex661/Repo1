@@ -33,4 +33,8 @@ public class StudentBusiness {
     public boolean deleteStudent(final String stuNum) {
         return studentDao.deleteStudent(stuNum);
     }
+    public boolean verifyStudent(final StudentDO stu) {
+        return !studentDao.getStudentbypassword(stu).isEmpty();
+    }
+
 }

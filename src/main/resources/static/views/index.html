@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
     <title>自习室预订</title>
     <meta charset="UTF-8">
@@ -25,14 +25,16 @@
             <div style="padding:10px;" title="系统管理">
                 <a href="/views/student.html">学生管理</a>
                 <p></p>
-                <a href="/views/studyroom.html">自习室管理</a>
+                <a href="/views/seat.html">自习室管理</a>
+                <p></p>
+                <a href="/views/reversion.html">自习室预约</a>
             </div>
         </div>
     </div>
     <div data-options="region:'center',title:'系统管理',iconCls:'icon-ok'">
         <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
-            <div data-options="href:'/views/student.html'" style="padding:10px" title="学生管理"></div>
-            <div data-options="href:'/views/studyroom.html'" style="padding:10px" title="自习室管理"></div>
+            <div href="/views/student.html" style="padding:10px" title="学生管理"></div>
+            <div href="/views/seat.html" style="padding:10px" title="自习室管理"></div>
         </div>
     </div>
 </div>

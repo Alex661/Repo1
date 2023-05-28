@@ -48,7 +48,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void shoule_be_success_when_query_all_students() throws Exception {
+    public void queryAllstudents() throws Exception {
         final MvcResult result = mockMvc.perform(MockMvcRequestBuilders
                         .get(url)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -63,7 +63,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void should_be_success_when_add_a_new_student() throws Exception {
+    public void addStudent() throws Exception {
         final StudentDO stuDo = addNewStudent();
         final StudentDO queryDo = queryStudent(stuDo);
 
@@ -73,12 +73,12 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void should_be_fail_when_adding_the_same_student() {
+    public void addingSamestudent() {
         // to be continue
     }
 
     @Test
-    public void should_be_success_when_modifying_existing_student() throws Exception {
+    public void modifyingStudent() throws Exception {
         final StudentDO stuDo = addNewStudent();
         stuDo.setPassword("modify123");
 
@@ -96,12 +96,12 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void should_be_fail_when_modifying_non_existing_student() {
+    public void modifyingNonExistingStudent() {
         // to be continue
     }
 
     @Test
-    public void should_be_success_when_delete_existing_student() throws Exception {
+    public void deleteStudent() throws Exception {
         final StudentDO stuDo = addNewStudent();
 
         mockMvc.perform(MockMvcRequestBuilders.delete(url + "//" + stuDo.getStuNum())
@@ -117,8 +117,14 @@ public class StudentControllerTest {
     }
 
     @Test
-    public void should_be_success_when_delete_non_existing_student() {
+    public void verify() throws Exception {
         // to be continue
+        StudentDO stuDo = addNewStudent();
+        mockMvc.perform(MockMvcRequestBuilders.post("/student/verify")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(stuDo))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
     private StudentDO addNewStudent() throws Exception {

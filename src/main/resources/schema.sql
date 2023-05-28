@@ -9,7 +9,7 @@ create table tbl_student
     unique (stuNum)
 );
 
-drop table if exists tbl_studyroom;
+drop table if exists tbl_study_room;
 create table tbl_study_room
 (
     id           int         not null auto_increment,
@@ -18,20 +18,14 @@ create table tbl_study_room
     primary key (id)
 );
 
+
+
 drop table if exists tbl_seat;
 create table tbl_seat
 (
-    id          int not null auto_increment,
-    studyRoomId int not null,
-    primary key (id, studyRoomId)
-);
-
-drop table if exists tbl_booking_xxx;
-create table tbl_booking_xxx
-(
-    id            int not null auto_increment,
-    seatId        int not null,
-    bookingPeriod int not null,
-    stuId         int not null,
-    primary key (id)
+    id                int         not null auto_increment,
+    name              varchar(16) not null,
+    isReserved        BOOLEAN     NOT NULL,
+    isFrozen          BOOLEAN     NOT NULL,
+    reservedTimeslots VARCHAR(255)
 );

@@ -15,4 +15,5 @@ public interface StudentMapper {
     int saveStudent(@Param("stu") StudentDO stu);
 
     int deleteStudent(@Param("stuNum") String stuNum);
+    List<StudentDO> verifyStudent(@Param("stu") StudentDO stu);
 }

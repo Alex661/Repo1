@@ -26,5 +26,7 @@ public class StudentDao {
 
     public boolean deleteStudent(final String stuNum) {
         return studentMapper.deleteStudent(stuNum) > 0;
+    }public List<StudentDO> getStudentbypassword(final StudentDO stu) {
+        return studentMapper.verifyStudent(stu);
     }
 }
